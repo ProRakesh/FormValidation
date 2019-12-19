@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Form Validation</title>
+
+
+
+</head>
+
+<body>
+
+    <div class="container ">
+        <h1 class=" text-center font-weight-bold"> Welcome to my Validation form</h1>
+        <div class="col-lg-8 m-auto d-block  ">
+            <form action="thank.html" onsubmit="return validation()" class="bg-light">
+                <div class="form-group">
+                    <label class=" font-weight-bold ">Name:</label>
+                    <input type="text" class="form-control" id="user" autocomplete="off">
+                    <span id="username" class="text-danger  font-weight-bold"></span>
+
+                </div>
+                <div class="form-group">
+                    <label class=" font-weight-bold ">Email:</label>
+                    <input type="email" class="form-control" id="mail" autocomplete="off">
+                    <span id="mailper" class="text-danger  font-weight-bold"></span>
+
+                </div>
+                <div class="form-group">
+                    <label class=" font-weight-bold ">password:</label>
+                    <input type="password" class="form-control" id="pass" autocomplete="off">
+                    <span id="passname" class="text-danger  font-weight-bold"></span>
+
+                </div>
+
+                <div class="form-group">
+                    <label class=" font-weight-bold ">Confirmpassword:</label>
+                    <input type="password" class="form-control" id="conpass" autocomplete="off">
+                    <span id="confpass" class="text-danger  font-weight-bold"></span>
+
+                </div>
+                <div class="form-group">
+                    <label class=" font-weight-bold ">MobileNumber:</label>
+                    <input type="mobile" class="form-control" id="mnum" autocomplete="off">
+                    <span id="mobnum" class="text-danger  font-weight-bold"></span>
+
+                </div>
+
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <Script type="text/javascript">
+
+
+ function validation() {
+
+
+            var name = document.getElementById('user').value;
+
+
+
+
+
+            if (name == "") {
+                document.getElementById('username').innerHTML = "Please fill your name";
+                return false;
+
+            }
+
+            if ((name.length <=2) || (name.length > 20)) {
+                document.getElementById('username').innerHTML = "please enter ur name atleast 3 to 18 word";
+                alert("please fill number atleast 3 char")
+
+                return false;
+
+            }
+            if (!isNaN(name)) {
+
+                document.getElementById('username').innerHTML = "please fill only charcter";
+
+                return false;
+
+            }
+
+
+
+
+
+
+
+
+
+            var mail = document.getElementById('mail').value;
+
+
+            if (mail == "") {
+                document.getElementById('mailper').innerHTML = "Please fill your email";
+                return false;
+
+            }
+
+                 if (mail.indexOf('@') <= 0) {
+                        document.getElementById('mailper').innerHTML = "invalid email";
+                        return false;
+
+                    }
+                   if ((mail.charAt(mail.length-4) != '.') && (mail.charAt(mail.length-3) != '.')) {
+                            document.getElementById('mailper').innerHTML = "invalid email";
+                            return false;
+                        }
+
+
+
+
+            var password = document.getElementById('pass').value;
+
+
+            if (password == "") {
+                document.getElementById('passname').innerHTML = "Please fill  proper password";
+                return false;
+
+            }
+
+
+            if ((password.length <= 3) || (password.length > 20)) {
+                document.getElementById('passname').innerHTML = "please fill password more than 3 charcater";
+
+                return false;
+
+            }
+
+
+                var confirm_password = document.getElementById('conpass').value;
+
+                if (confirm_password == "") {
+                    document.getElementById('confpass').innerHTML = "Please  confirm password";
+                    return false;
+
+                }
+
+                if (password!=confirm_password) {
+                    document.getElementById('confpass').innerHTML = " did not match password";
+                    alert("Did not match your password")
+                    return false;
+
+                }
+
+
+
+                var mobile_number = document.getElementById('mnum').value;
+
+                if (mobile_number == "") {
+                    document.getElementById('mobnum').innerHTML = "Please fill mobile number";
+                    
+                    return false;
+
+                }
+                if (isNaN(mobile_number)) {
+                    document.getElementById('mobnum').innerHTML = "Please fill only number not character";
+                    alert("Please fill only number(0to10) not character")
+                    return false;
+
+                }
+
+                if (mobile_number.length!=10) {
+                    document.getElementById('mobnum').innerHTML = "Please only 10 digit  mobile number";
+                    alert("please 10digit mobile number ")
+                    return false;
+
+                }
+
+
+
+
+
+
+            }
+
+
+
+
+    </Script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
